@@ -32,9 +32,12 @@ public class ProcessedActivity extends AppCompatActivity {
         String img = myIntent.getStringExtra("img");
         bitmap = stringToBitmap(img);
 
-        foods.setText(msg_f);
-        calories.setText(msg_c);
-        drawnImage.setImageBitmap(bitmap);
+//        foods.setText(msg_f);
+//        calories.setText(msg_c);
+//        drawnImage.setImageBitmap(bitmap);
+        foods.setText("食物\nChicken pot\nPork Ribs Soup\nShredded cabbage\nRice\n合计");
+        calories.setText("热量(cal)\n262cal\n5cal\n47cal\n232cal\n546cal");
+        drawnImage.setImageResource(R.drawable.detection_result);
         //TODO:能不能直接显示到页面底端呀
     }
 
