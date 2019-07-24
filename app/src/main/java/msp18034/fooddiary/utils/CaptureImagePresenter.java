@@ -71,8 +71,8 @@ public class CaptureImagePresenter {
         //TODO: 打开摄像头还有问题
 
         imageCapture.get(medium).run();
+        Log.i("camera","imageCapture.get(medium).run()!!!!!!!!!!!!!!!!!!!!!!!!");
         dir.delete();
-        Log.i("camera","dir !!!delete!!!!!!!!!!!!!!!!!!");
     }
 
     private void gallery() {
@@ -80,7 +80,6 @@ public class CaptureImagePresenter {
         i.setType("image/*");
         i.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(output));
         Log.i("camera","gallery!!!!!!!!!!!!!!!!!!!!!!!!");
-
         activity.startActivityForResult(i, GALLERY);
     }
 
@@ -88,6 +87,7 @@ public class CaptureImagePresenter {
         Intent i =new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         i.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(output));
         Log.i("camera","camera!!!!!!!!!!!!!!!!!!!!!!!!");
+        Log.i("camera",""+CONTENT_REQUEST);
         activity.startActivityForResult(i, CONTENT_REQUEST);
     }
 
@@ -134,7 +134,7 @@ public class CaptureImagePresenter {
     }
 
     public void sendImage() {
-        UploadImage uploadImage = new UploadImage(new HostFactory().createHost(), new Base64Image(output).getBase64Image(), this);
+        UploadImage uploadImage = new UploadImage(new HostFactory().createHost(11450), new Base64Image(output).getBase64Image(), this);
         uploadImage.execute();
     }
 

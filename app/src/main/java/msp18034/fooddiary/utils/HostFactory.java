@@ -7,10 +7,10 @@ package msp18034.fooddiary.utils;
 
 public class HostFactory {
 
-    public Host createHost() {
+    public Host createHost(int port) {
         Host host = new Host.HostBuilder("202.45.128.135")
                     //.withDns("ec2-52-214-205-157.eu-west-1.compute.amazonaws.com")
-                    .withPort(11450)
+                    .withPort(port)
                     //.withRoute("/classifyImage/")
                     .build();
         return host;

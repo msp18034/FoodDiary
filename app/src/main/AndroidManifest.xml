@@ -13,8 +13,8 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <!--TODO:设计app图标! 连接数据库进行卡路里计算！-->
 
+    <!-- TODO:设计app图标! 连接数据库进行卡路里计算！ -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -31,7 +31,7 @@
         </activity>
         <activity android:name=".CaptureImageActivity" />
         <activity android:name=".FoodLogsActivity" />
-        <activity android:name=".ProcessedActivity"></activity>
+        <activity android:name=".ProcessedActivity" />
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" />
@@ -45,6 +45,8 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
+        <activity android:name=".NutritionActivity"></activity>
     </application>
 
 </manifest>
