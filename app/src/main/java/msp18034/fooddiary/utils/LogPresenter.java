@@ -54,8 +54,8 @@ public class LogPresenter {
         //{"id": "test", "time": "1970-01-19 02:23:00.741Z", "calorie": [1.23, 45.23], "carbo": null,
         //  "fat": null, "fiber": null, "food": ["food1", "food2"], "photo": null, "protein": null}
 
-
         String[] result = response.split("\\|");
+        Log.i("!!!","result split!!ok!!!!!!!!!!"+result.length);
         String[] imgs = new String[result.length];
         String[] foods_text = new String[result.length];
         String[] calories_text = new String[result.length];
@@ -63,11 +63,10 @@ public class LogPresenter {
         double total_carbo = 0, total_fat = 0;
         double total_fiber = 0, total_protein = 0;
 
-
         try {
             for (int i=0; i< result.length; i++){
                 JSONObject jsonObject = new JSONObject(result[i]);
-                imgs[i] = jsonObject.getString("drawn_img");
+                imgs[i] = jsonObject.getString("photo");
 
                 JSONArray classes = jsonObject.getJSONArray("class");
                 JSONArray calorie = jsonObject.getJSONArray("calories");
@@ -80,7 +79,7 @@ public class LogPresenter {
                 for (int j=0; j<classes.length(); j++){
                     food_t += classes.getString(j)+"\n";
                     int cal = (int)calorie.getDouble(j);
-                    cal_t += cal + "\n";
+                    cal_t += cal + "cal\n";
                     total_cal += cal;
                     total_carbo += carbo.getDouble(j);
                     total_fat += fat.getDouble(j);

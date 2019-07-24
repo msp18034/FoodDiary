@@ -44,7 +44,7 @@
         don:centerTextSize="0sp"
         don:circleWidth="25dp"
         don:dataTextColor="#000000"
-        don:dataTextSize="12sp" />
+        don:dataTextSize="15sp" />
 
     <TableLayout
         android:id="@+id/tableLayout2"
