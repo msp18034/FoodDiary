@@ -3,6 +3,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -139,8 +140,9 @@ public class CaptureImagePresenter {
 
     public void responseFromSever(String response) {
         String user = "", image = "";
-        String msg_f = "食物";
-        String msg_c = "热量(cal)";
+        String msg_f = "Food";
+        String msg_c = "Calorie(cal)";
+        int total = 0;
         Log.i("response",response);
         try {
             JSONObject jsonObject = new JSONObject(response);
@@ -150,28 +152,29 @@ public class CaptureImagePresenter {
             JSONArray calories = jsonObject.getJSONArray("calories");
             double processtime = jsonObject.getDouble("process_time");
 
-            int total = 0;
             for (int i=0; i<calories.length(); i++){
-                msg_f += "\n"+classes.getString(i);
-                msg_c += "\n"+calories.getInt(i);
-                total += calories.getInt(i);
+                int cal = (int)calories.getDouble(i);
+                msg_f += "\n" + classes.getString(i);
+                msg_c += "\n" + cal;
+                total += cal;
             }
-            msg_f += "\n合计";
+            msg_f += "\nTotal";
             msg_c += "\n"+total;
 
         }catch (JSONException e) {
             e.printStackTrace();
         }
-        updateUI(image, msg_f, msg_c);
+        updateUI(image, msg_f, msg_c, total);
     }
 
 
-    public void updateUI(String img, String msg_f, String msg_c) {
+    public void updateUI(String img, String msg_f, String msg_c, int total) {
         //将返回的数据用processedActivity 输出
         Intent intent = new Intent(activity, ProcessedActivity.class);
         intent.putExtra("img", img);
         intent.putExtra("msg_f", msg_f);
         intent.putExtra("msg_c", msg_c);
+        intent.putExtra("total", total);
         activity.startActivity(intent);
     }
 

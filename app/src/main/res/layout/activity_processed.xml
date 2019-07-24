@@ -18,7 +18,7 @@
             <ImageView
                 android:id="@+id/drawnImage"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
+                android:layout_height="350dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:scaleType="fitCenter"
@@ -49,18 +49,21 @@
                     android:textAlignment="center"
                     android:textColor="#000000"
                     android:textSize="18sp" />
+
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/comment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Eating too much!\n"
-                android:textAlignment="center"
+
+            <Button
+                android:id="@+id/alerttext"
+                android:layout_width="150dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
                 android:textColor="#fd4c0b"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:background="#fdf500"
+                android:text="! Eating too much !"
+                android:textStyle="bold"
+                android:visibility="invisible"/>
 
             <Button
                 android:id="@+id/button_confirm"
@@ -69,7 +72,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:background="#f3fdd300"
                 android:onClick="confirm"

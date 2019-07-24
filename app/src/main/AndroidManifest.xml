@@ -13,7 +13,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <!--TODO:设计app图标! 设计用户登录界面！连接数据库进行卡路里计算！-->
+    <!--TODO:设计app图标! 连接数据库进行卡路里计算！-->
 
     <application
         android:allowBackup="true"

@@ -2,6 +2,7 @@ package msp18034.fooddiary;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +16,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //如果本地没有用户信息，跳转到用户界面
+        SharedPreferences sharedPreferences = getSharedPreferences("userinfo", Context.MODE_PRIVATE);
+        String userid = sharedPreferences.getString("id", null);
+        if (userid == null){
+            Intent myIntent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(myIntent);
+        }
+
 
         Button takephoto = findViewById(R.id.takephoto);
         takephoto.setOnClickListener(new View.OnClickListener() {
@@ -43,6 +53,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(),
                         FoodLogsActivity.class);
+                startActivity(myIntent);
+            }
+
+        });
+
+        Button usersetting = findViewById(R.id.usersetting);
+        usersetting.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(),
+                        LoginActivity.class);
                 startActivity(myIntent);
             }
 

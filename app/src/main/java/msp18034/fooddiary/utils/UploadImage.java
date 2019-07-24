@@ -11,6 +11,7 @@ import msp18034.fooddiary.utils.Host;
 import msp18034.fooddiary.utils.CaptureImagePresenter;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.MediaType;
@@ -57,10 +58,12 @@ public class UploadImage extends AsyncTask<Void, Void, String> {
                 .build();
         String imageToSend = image;
         String user = userid;
+        long nowTime = System.currentTimeMillis()/1000;
         RequestBody requestBody = new MultipartBody.Builder()
                 .setType(MultipartBody.FORM)
                 .addFormDataPart("image", imageToSend)
                 .addFormDataPart("user", user)
+                .addFormDataPart("start",String.valueOf(nowTime))
                 .build();
 
         Request request = new Request.Builder().url(host.getUrl())

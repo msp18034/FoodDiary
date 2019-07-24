@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/my_toolbar"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="73dp"
+            android:layout_marginTop="70dp"
             android:text="Choose an image to analyse"
             android:textColor="#fdb100"
             android:textSize="20dp"
@@ -49,12 +49,12 @@
 
         <Button
             android:id="@+id/takephoto"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView2"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
-            android:layout_marginTop="93dp"
+            android:layout_marginTop="80dp"
             android:background="#f3fdd300"
             android:text="      Take Photo      "
             android:textSize="20dp"
@@ -62,11 +62,11 @@
 
         <Button
             android:id="@+id/gallery"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/takephoto"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="25dp"
             android:background="#f3fdd300"
             android:text="       GALLERY       "
             android:textSize="20dp"
@@ -74,33 +74,34 @@
 
         <Button
             android:id="@+id/showlogs"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/horizontalScrollView"
+            android:layout_above="@id/usersetting"
             android:layout_centerHorizontal="true"
-            android:layout_gravity="center"
             android:layout_marginBottom="25dp"
-            android:background="#d8cacaca"
+            android:background="#d8d7d7d7"
             android:text="      Food Logs      "
-            android:textColor="@color/toolbar"
+            android:textColor="#ffb300"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/usersetting"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="25dp"
+            android:background="#d8d7d7d7"
+            android:text="      User setting      "
+            android:textColor="#ffb300"
             android:textSize="20dp"
             android:textStyle="bold" />
 
 
 
-        <HorizontalScrollView
-            android:id="@+id/horizontalScrollView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="34dp"
-            android:layout_toStartOf="@+id/textView2">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical" />
-        </HorizontalScrollView>
 
 
 
