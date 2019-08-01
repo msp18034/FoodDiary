@@ -31,16 +31,16 @@ public class UploadImage extends AsyncTask<Void, Void, String> {
     private static final MediaType MEDIA_TYPE_PNG = MediaType.parse("image/png");
     private Host host;
     private String image;
-    private String userid = "APPuser1";
+    private String userid;
     private CaptureImagePresenter captureImagePresenter;
     public final static int CONNECT_TIMEOUT =30;
-    public final static int READ_TIMEOUT=10;
-    public final static int WRITE_TIMEOUT=10;
+    public final static int READ_TIMEOUT=20;
+    public final static int WRITE_TIMEOUT=20;
 
-    public UploadImage(Host host, String image, CaptureImagePresenter captureImagePresenter) {
+    public UploadImage(Host host, String image, String userid, CaptureImagePresenter captureImagePresenter) {
         this.host = host;
         this.image = image;
-        this.userid = "APPuser1";
+        this.userid = userid;
         this.captureImagePresenter = captureImagePresenter;
     }
 
@@ -57,13 +57,13 @@ public class UploadImage extends AsyncTask<Void, Void, String> {
                 .connectTimeout(CONNECT_TIMEOUT,TimeUnit.SECONDS)//设置连接超时时间
                 .build();
         String imageToSend = image;
-        String user = userid;
+        String user = this.userid;
         long nowTime = System.currentTimeMillis()/1000;
+        Log.i("!!!","user!!!"+user);
         RequestBody requestBody = new MultipartBody.Builder()
                 .setType(MultipartBody.FORM)
                 .addFormDataPart("image", imageToSend)
                 .addFormDataPart("user", user)
-                .addFormDataPart("start",String.valueOf(nowTime))
                 .build();
 
         Request request = new Request.Builder().url(host.getUrl())

@@ -57,10 +57,12 @@ public class CaptureImagePresenter {
     private File output = null;
     private Map<String, Runnable> imageCapture;
     private static final int GALLERY = 1;
+    private String user;
 
-    public CaptureImagePresenter(Activity activity, String medium) {
+    public CaptureImagePresenter(Activity activity, String medium, String user) {
         this.activity = activity;
         this.imageCapture = new HashMap<>();
+        this.user=user;
         imageCapture.put("camera", () -> takePicture());
         imageCapture.put("gallery", () -> gallery());
 
@@ -134,7 +136,8 @@ public class CaptureImagePresenter {
     }
 
     public void sendImage() {
-        UploadImage uploadImage = new UploadImage(new HostFactory().createHost(11450), new Base64Image(output).getBase64Image(), this);
+        UploadImage uploadImage = new UploadImage(new HostFactory().createHost(11450), new Base64Image(output).getBase64Image(), user,this);
+        Log.i("updateimage","complete!!!!!!!!!!!!!!");
         uploadImage.execute();
     }
 

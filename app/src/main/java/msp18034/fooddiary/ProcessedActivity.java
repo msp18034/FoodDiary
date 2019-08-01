@@ -43,7 +43,7 @@ public class ProcessedActivity extends AppCompatActivity {
         drawnImage.setImageBitmap(bitmap);
         SharedPreferences sharedPreferences = getSharedPreferences("userinfo", Context.MODE_PRIVATE);
         int calorie = sharedPreferences.getInt("calorie",1500);
-        if ( total / calorie > 0.4){
+        if ( (double)total / calorie > 0.4){
             alert.setVisibility(View.VISIBLE);
         }
 //        foods.setText("食物\nChicken pot\nPork Ribs Soup\nShredded cabbage\nRice\n合计");

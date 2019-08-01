@@ -1,6 +1,8 @@
 package msp18034.fooddiary;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,9 +21,11 @@ public class CaptureImageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_capture_image);
+        SharedPreferences sharedPreferences = getSharedPreferences("userinfo", Context.MODE_PRIVATE);
+        String userid = sharedPreferences.getString("id", null);
         Intent myIntent = getIntent();
         String medium = myIntent.getStringExtra("medium");
-        captureImagePresenter = new CaptureImagePresenter(this, medium);
+        captureImagePresenter = new CaptureImagePresenter(this, medium,userid);
     }
 
     @Override

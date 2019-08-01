@@ -68,9 +68,28 @@ public class FoodLogsActivity extends AppCompatActivity {
         Button na = findViewById(R.id.na_button);
         LinearLayout ll = findViewById(R.id.linearLayout);
 
-        if(total_cal>calorie){
+        //alert part
+        int max = (int)(calorie * 1.1);
+        int min = (int)(calorie * 0.9);
+
+        if(total_cal>max){
+            at.setText("Eating too much! Do more practice ^.^");
+            at.setTextColor(getResources().getColor(R.color.fat));
             at.setVisibility(View.VISIBLE);
         }
+        else if(total_cal<max){
+            at.setText("Insufficient intake~ eat some more");
+            at.setTextColor(getResources().getColor(R.color.nutrition));
+            at.setVisibility(View.VISIBLE);
+        }
+        else{
+            at.setText("Enough food today ^.^");
+            at.setTextColor(getResources().getColor(R.color.nutrition));
+            at.setVisibility(View.VISIBLE);
+        }
+
+
+
         tb.setVisibility(View.VISIBLE);
         na.setVisibility(View.VISIBLE);
         ll.setVisibility(View.VISIBLE);
