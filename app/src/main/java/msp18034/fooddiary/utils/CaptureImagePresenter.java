@@ -153,7 +153,6 @@ public class CaptureImagePresenter {
             image = jsonObject.getString("drawn_img");
             JSONArray classes = jsonObject.getJSONArray("class");
             JSONArray calories = jsonObject.getJSONArray("calories");
-            double processtime = jsonObject.getDouble("process_time");
 
             for (int i=0; i<calories.length(); i++){
                 int cal = (int)calories.getDouble(i);
